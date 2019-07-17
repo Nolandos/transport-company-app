@@ -6,11 +6,12 @@
         display: flex;
         align-items: center;
         border-right: 1px solid #d8d8d8;
-        width: 50%;
+        width: 55%;
         padding: 0 15px;
 
         >p {
             font-size: 1.2em;
+            text-align: center;
         }
     
         .uil-arrow-to-right {
@@ -40,7 +41,53 @@
         .details-text {
             margin: 0;
         }
-    }  
+    }
+    
+    .active {
+        width: 15%;
+        border-right: 1px solid #d8d8d8;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .active-ico {
+            border-radius: 50%;
+            width: 15px;
+            height: 15px;
+            background-color: green;
+        }
+
+        .onactive-ico {
+            border-radius: 50%;
+            width: 15px;
+            height: 15px;
+            background-color: red;
+        }
+    }
+
+    .priority {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 15%;
+
+        .uil-arrow-down {
+            color: green;
+        }
+
+        .uil-arrow-right {
+            color: orange;
+        }
+
+        .uil uil-arrow-up {
+            color: red;
+        }
+
+        >i {
+            font-size: 2.5em;
+        }
+    }
 }
 
 .details {

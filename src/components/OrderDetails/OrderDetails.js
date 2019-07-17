@@ -7,7 +7,7 @@ import './OrderDetails.scss';
 
 const TransportDetailsSytle = styled.div`
   background-color: #fff;
-  width: 70%;
+  width: 85%;
   padding-left: 0;
   list-style-type: none;
   position: relative;
@@ -21,7 +21,8 @@ const TransportDetails = ({
   date,
   active,
   driver,
-  vehicle
+  vehicle,
+  priority
 }) => {
   /*HOOKS*/
   const [visible, setVisible] = useState(false);
@@ -38,16 +39,25 @@ const TransportDetails = ({
           <i className='uil uil-eye'></i>
           <p className="details-text">Szczegóły</p>
         </div>
+        <div className="active">
+          { active ? <div class="active-ico"></div> : <div class="onactive-ico"></div> }
+        </div>
+        <div className="priority">
+          { priority === 'low' && <i class='uil uil-arrow-down'></i> }
+          { priority === 'medium' && <i class='uil uil-arrow-right'></i> }
+          { priority === 'hight' && <i class='uil uil-arrow-up'></i> }
+        </div>
       </div>
       { visible && 
       <div className="details">
-        <p>Skąd: {source_address}</p>
-        <p>Dokąd: {destination_address}</p>
-        <p>Cena: {price}</p>
-        <p>Data: {date}</p>
-        <p>Status: {active ? <p>W trakcie</p> : <p>Zakończony</p>}</p>
-        <p>Samochód: {vehicle}</p>
-        <p>Kierowca: {driver}</p>
+        <p>Skąd: { source_address }</p>
+        <p>Dokąd: { destination_address }</p>
+        <p>Cena: { price }</p>
+        <p>Data: { date }</p>
+        <p>Status: { active ? 'W trakcie' : 'Zakończony' }</p>
+        <p>Samochód: { vehicle }</p>
+        <p>Kierowca: { driver }</p>
+        <p>Priorytet: { priority }</p>
       </div> }
     </TransportDetailsSytle>
   );
