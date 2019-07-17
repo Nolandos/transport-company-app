@@ -2,7 +2,7 @@
 import React from "react";
 import styled from "styled-components";
 //import { useSelector } from "react-redux";
-
+import { BrowserRouter as Router } from 'react-router-dom';
 //IMPORT COMPONTENTS
 import Content from "./Content";
 import LeftBar from "./LeftBar";
@@ -15,6 +15,7 @@ const Wrapper = styled.div`
 
 const App = () => {
   return (
+    <Router>
     <div className="app">
       <TopBar />
       <Wrapper>
@@ -23,6 +24,7 @@ const App = () => {
       </Wrapper>
       <Footer />
     </div>
+    </Router>
   );
 };
 

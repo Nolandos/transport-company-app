@@ -29,7 +29,7 @@ const TransportDetails = ({
 
   return (
     <TransportDetailsSytle>
-      <div class="container">
+      <div className="container">
         <div className="wrapper">
           <p className="source-address">{ source_address }</p>
           <i className='uil uil-arrow-to-right'></i>

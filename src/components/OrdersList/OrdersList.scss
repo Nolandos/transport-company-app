@@ -39,6 +39,7 @@
 	height: 80px;
 	transform: translate(-50%, -50%) rotate(45deg) translate3d(0,0,0);
 	animation: loader 1.2s infinite ease-in-out;
+	z-index: 99;
 
 	span {
 		position: absolute;

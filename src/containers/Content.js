@@ -1,11 +1,7 @@
 //REQUIRED IMPORTS
 import React from "react";
 import styled from "styled-components";
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 //IMPORT COMPONENTS
 import OrdersList from "../components/OrdersList/OrdersList";
@@ -21,9 +17,9 @@ const ContentStyle = styled.div`
 const Content = () => {
   return (
     <ContentStyle>
-      <Router>
-        <Route exact path="/orders" component={OrdersList} />
-      </Router>
+      <Switch>
+        <Route exact path="/orders" component={ OrdersList } />
+      </Switch>
     </ContentStyle>
   );
 };
