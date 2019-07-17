@@ -1,9 +1,15 @@
 //REQUIRED IMPORTS
 import React from "react";
 import styled from "styled-components";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
 
 //IMPORT COMPONENTS
 import OrdersList from "../components/OrdersList/OrdersList";
+
 
 const ContentStyle = styled.div`
   width: 90%;
@@ -15,7 +21,9 @@ const ContentStyle = styled.div`
 const Content = () => {
   return (
     <ContentStyle>
-      <OrdersList />
+      <Router>
+        <Route exact path="/orders" component={OrdersList} />
+      </Router>
     </ContentStyle>
   );
 };
