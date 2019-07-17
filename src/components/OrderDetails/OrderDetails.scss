@@ -80,7 +80,7 @@
             color: orange;
         }
 
-        .uil uil-arrow-up {
+        .uil-arrow-up {
             color: red;
         }
 
@@ -93,4 +93,32 @@
 .details {
     height: 300px;
     border-bottom: 1px solid #d8d8d8;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+@-webkit-keyframes fadeIn {
+    0% { 
+		height: 0;
+        opacity: 0;
+	}
+	55% {
+		height: 300px;
+	}
+	100% {
+		opacity: 1; 
+	}
+}  
+
+@keyframes fadeIn {
+    0% { 
+		height: 0;
+        opacity: 0;
+	}
+	55% {
+		height: 300px;
+	}
+	100% {
+		opacity: 1; 
+	}
 }

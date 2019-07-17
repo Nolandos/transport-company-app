@@ -45,7 +45,7 @@ const TransportDetails = ({
         <div className="priority">
           { priority === 'low' && <i class='uil uil-arrow-down'></i> }
           { priority === 'medium' && <i class='uil uil-arrow-right'></i> }
-          { priority === 'hight' && <i class='uil uil-arrow-up'></i> }
+          { priority === 'high' && <i class='uil uil-arrow-up'></i> }
         </div>
       </div>
       { visible && 
