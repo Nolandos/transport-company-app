@@ -5,7 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 
 //IMPORT COMPONENTS
 import OrdersList from "../components/OrdersList/OrdersList";
-
+import NewOrder from "../components/NewOrder/NewOrder";
 
 const ContentStyle = styled.div`
   width: 90%;
@@ -19,6 +19,7 @@ const Content = () => {
     <ContentStyle>
       <Switch>
         <Route exact path="/orders" component={ OrdersList } />
+        <Route exact path="/create-order" component={ NewOrder } />
       </Switch>
     </ContentStyle>
   );

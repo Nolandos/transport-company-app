@@ -1,5 +1,6 @@
 //ACTIONS
 export const loadAllOrder = (orders) => ({type: 'LOAD_ALL', orders});
+export const addNewOrder = (order) => ({type: 'ADD_ORDER', order});
 export const getDataRequested = () => ({type: 'GET_DATA_REQUESTED'});  
 export const getDataDone = () => ({type: 'GET_DATA_DONE'});
 export const errorRequest = (err) => ({type: 'ERROR_REQUEST', err});
@@ -27,6 +28,30 @@ export const loadOrders = () => {
   } 
 }
 
+export const createOrder = (data) => {
+  return async dispatch => {
+    const url = `http://localhost:8080/orders`;
+
+    try {
+      let response = await fetch(url, {
+        method: 'POST', 
+        mode: 'cors', 
+        cache: 'no-cache', 
+        credentials: 'same-origin', 
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        redirect: 'follow', 
+        referrer: 'no-referrer', 
+        body: JSON.stringify(data, null, 2), 
+    })
+    dispatch(addNewOrder(data));
+    } catch(err) {
+      console.log('Błąd');
+    }
+  }
+}
+
 //INITIAL STATE
 const initialState = {
   orders: [],
@@ -42,6 +67,8 @@ export default function ordersReducer(state = initialState, action = {}) {
   switch (action.type) {
     case 'LOAD_ALL':
       return { ...state, orders: action.orders };
+    case 'ADD_ORDER':
+      return { ...state, orders: state.orders.concat(action.order)};
     case 'GET_DATA_REQUESTED':
       return { ...state, request: { pending: true } };
     case 'GET_DATA_DONE':
