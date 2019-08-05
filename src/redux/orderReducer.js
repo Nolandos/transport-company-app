@@ -12,7 +12,7 @@ export const loadOrders = () => {
     dispatch(getDataRequested());
     
     try {
-      await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+      //await new Promise((resolve, reject) => setTimeout(resolve, 4000));
       let response = await fetch(url);
       if(response.ok === false) {    
           dispatch(errorRequest(response.status));
@@ -31,7 +31,7 @@ export const loadOrders = () => {
 export const createOrder = (data) => {
   return async dispatch => {
     const url = `http://localhost:8080/orders`;
-
+    console.log(JSON.stringify(data, null, 2));
     try {
       let response = await fetch(url, {
         method: 'POST', 

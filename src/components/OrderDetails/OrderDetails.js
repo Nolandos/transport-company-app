@@ -4,7 +4,6 @@ import styled from "styled-components";
 import './OrderDetails.scss';
 
 //IMPORT REDUX ELEMENTS
-
 const TransportDetailsSytle = styled.div`
   background-color: #fff;
   width: 85%;
@@ -14,7 +13,6 @@ const TransportDetailsSytle = styled.div`
 `;
 
 const TransportDetails = ({
-  id,
   source_address,
   destination_address,
   price,
@@ -40,12 +38,12 @@ const TransportDetails = ({
           <p className="details-text">Szczegóły</p>
         </div>
         <div className="active">
-          { active ? <div class="active-ico"></div> : <div class="onactive-ico"></div> }
+          { active ? <div className="active-ico"></div> : <div className="onactive-ico"></div> }
         </div>
         <div className="priority">
-          { priority === 'low' && <i class='uil uil-arrow-down'></i> }
-          { priority === 'medium' && <i class='uil uil-arrow-right'></i> }
-          { priority === 'high' && <i class='uil uil-arrow-up'></i> }
+          { priority === 'low' && <i className='uil uil-arrow-down'></i> }
+          { priority === 'medium' && <i className='uil uil-arrow-right'></i> }
+          { priority === 'high' && <i className='uil uil-arrow-up'></i> }
         </div>
       </div>
       { visible && 

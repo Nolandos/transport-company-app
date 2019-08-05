@@ -3,10 +3,16 @@ import thunk from "redux-thunk";
 
 //IMPORT REDUCERS
 import orders from "./orderReducer";
+import vehicles from "./vehicleReducer";
+import drivers from "./driverReducer";
+import clients from "./clientsReducer";
 
 //COMBINE REDUCERS
 const allReducers = combineReducers({
-  orders
+  orders,
+  vehicles,
+  drivers,
+  clients
 });
 
 //CREATE STRORE
