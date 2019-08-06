@@ -23,15 +23,17 @@ const ErrorInfo = styled.p`
   margin-top: 0;
 `;
 
+// VALIDATION SCHEMA
 const SignupSchema = Yup.object().shape({
   source_address: Yup.string()
-    .matches(/^ul.[0-9]/, {
-    message:'Inccorect format. Example 25 or 25.1'
+    .matches(/^ul.\s[A-Z]{1}[^\s]+\s[0-9]+,\s[A-Z]{1}/, {
+    message:'(ul. Nazwa Nr, Miejscowość)'
   })
     .required('To pole jest wymagane !'),
   destination_address: Yup.string()
-    .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
+    .matches(/^ul.\s[A-Z]{1}[^\s]+\s[0-9]+,\s[A-Z]{1}/, {
+    message:'(ul. Nazwa Nr, Miejscowość)'
+  })
     .required('To pole jest wymagane !'),
   price: Yup.number()
     .min(0, 'Cena nie może być mniejsza od 0 !')
@@ -134,7 +136,7 @@ const NewOrder = () => {
               onBlur={ handleBlur }
               value={ values.active }
             >
-              <option>Wybierz Status</option>
+              <option value="">Wybierz Status</option>
               <option value="true">W trakcie</option>
               <option value="false">Zakończony</option>
             </Select>
@@ -147,7 +149,7 @@ const NewOrder = () => {
               onBlur={ handleBlur }
               value={ values.vehicle }
             >
-            <option>Wybierz pojazd</option>
+            <option value="">Wybierz pojazd</option>
             { vehicles.map(item => <option>{ item.car_brand } { item.car_model }</option>) }
             </Select>
             <ErrorInfo>{ errors.vehicle && touched.vehicle && errors.vehicle }</ErrorInfo>
@@ -159,7 +161,7 @@ const NewOrder = () => {
               onBlur={ handleBlur }
               value={ values.driver }
             >
-              <option>Wybierz Kierowcę</option>
+              <option value="">Wybierz Kierowcę</option>
               { drivers.map(item => <option>{ item.first_name } { item.last_name }</option>) }
             </Select>
             <ErrorInfo>{ errors.driver && touched.driver && errors.driver }</ErrorInfo>
@@ -171,7 +173,7 @@ const NewOrder = () => {
               onBlur={ handleBlur }
               value={ values.customer }
             >
-              <option>Wybierz Klienta</option>
+              <option value="">Wybierz Klienta</option>
               { clients.map(item => <option>{ item.name }</option>) }
             </Select>
             <ErrorInfo>{ errors.customer && touched.customer && errors.customer }</ErrorInfo>
@@ -183,7 +185,7 @@ const NewOrder = () => {
               onBlur={ handleBlur }
               value={ values.priority }
             >
-              <option>Wybierz Priorytet</option>
+              <option value="">Wybierz Priorytet</option>
               <option value="high">Wysoki</option>
               <option value="medium">Umiarkowany</option>
               <option value="low">Niski</option>
